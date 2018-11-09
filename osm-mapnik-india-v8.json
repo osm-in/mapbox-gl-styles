@@ -1,0 +1,77 @@
+{
+    "version": 8,
+    "name": "OpenStreetMap Mapnik raster tiles (India)",
+    "metadata": {
+        "mapbox:autocomposite": true
+    },
+    "glyphs": "https://cdn.jsdelivr.net/gh/lukasmartinelli-alt/glfonts@gh-pages/fonts/{fontstack}/{range}.pbf",
+    "sources": {
+        "osm-mapnik": {
+            "type": "raster",
+            "tiles": [
+                "https://a.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            ],
+            "tileSize": 256,
+            "attribution": "Basemap data <a href='https://www.osm.org' target=_blank>©  OpenStreetMap contributors</a>"
+        },
+        "adm0-land-border-IN": {
+            "type": "geojson",
+            "data": "https://raw.githubusercontent.com/planemad/maps/master/Country/india-osm-disputed-lines.geojson"
+        }
+    },
+    "layers": [{
+            "id": "background",
+            "type": "background",
+            "paint": {
+                "background-color": "rgba(0,0,0,0)"
+            }
+        },
+        {
+            "id": "osm-mapnik",
+            "type": "raster",
+            "source": "osm-mapnik"
+        },
+        {
+            "id": "disputed-IN",
+            "type": "line",
+            "source": "adm0-land-border-IN",
+            "filter": [
+                "all", [
+                    "all", ["in", "disputed_by", "IN"]
+                ]
+            ],
+            "paint": {
+                "line-color": "#f2efea",
+                "line-dasharray": [1, 0.5],
+                "line-opacity": 0.6,
+                "line-width": {
+                    "stops": [
+                        [3, 2],
+                        [10, 6]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "claimed-IN",
+            "type": "line",
+            "source": "adm0-land-border-IN",
+            "filter": [
+                "all", [
+                    "all", ["in", "claimed_by", "IN"]
+                ]
+            ],
+            "paint": {
+                "line-color": "purple",
+                "line-opacity": 0.14,
+                "line-width": {
+                    "stops": [
+                        [3, 2],
+                        [10, 6]
+                    ]
+                }
+            }
+        }
+    ],
+    "owner": "OpenStreetMap India"
+}
