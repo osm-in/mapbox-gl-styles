@@ -4,6 +4,8 @@
     "metadata": {
         "mapbox:autocomposite": true
     },
+    "center": [82, 23],
+    "zoom": 3.7,
     "glyphs": "https://cdn.jsdelivr.net/gh/lukasmartinelli-alt/glfonts@gh-pages/fonts/{fontstack}/{range}.pbf",
     "sources": {
         "osm-mapnik": {
@@ -14,9 +16,9 @@
             "tileSize": 256,
             "attribution": "Basemap data <a href='https://www.osm.org' target=_blank>©  OpenStreetMap contributors</a>"
         },
-        "adm0-land-border-IN": {
+        "adm0-disputed-lines-IN": {
             "type": "geojson",
-            "data": "https://raw.githubusercontent.com/planemad/maps/master/Country/india-osm-disputed-lines.geojson"
+            "data": "https://raw.githubusercontent.com/osm-in/mapbox-gl-styles/master/data/osm-india-adm0-disputed-lines.geojson"
         }
     },
     "layers": [{
@@ -34,7 +36,7 @@
         {
             "id": "disputed-IN",
             "type": "line",
-            "source": "adm0-land-border-IN",
+            "source": "adm0-disputed-lines-IN",
             "filter": [
                 "all", [
                     "all", ["in", "disputed_by", "IN"]
@@ -55,7 +57,7 @@
         {
             "id": "claimed-IN",
             "type": "line",
-            "source": "adm0-land-border-IN",
+            "source": "adm0-disputed-lines-IN",
             "filter": [
                 "all", [
                     "all", ["in", "claimed_by", "IN"]
