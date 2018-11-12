@@ -1,9 +1,11 @@
+/* For use with Mapbox GL v0.51+ */
 {
     "version": 8,
     "name": "OpenStreetMap Mapnik raster tiles (India)",
     "metadata": {
         "mapbox:autocomposite": true
     },
+    "bounds": [66, 7, 99, 37],
     "center": [82, 23],
     "zoom": 3.7,
     "glyphs": "https://cdn.jsdelivr.net/gh/lukasmartinelli-alt/glfonts@gh-pages/fonts/{fontstack}/{range}.pbf",
