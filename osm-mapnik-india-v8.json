@@ -1,4 +1,3 @@
-/* For use with Mapbox GL v0.51+ */
 {
     "version": 8,
     "name": "OpenStreetMap Mapnik raster tiles (India)",
